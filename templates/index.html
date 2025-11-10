@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Voice Sathi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Voice Sathi</h1>
+    <label>Language in which i will speak:
+      <select id="lang">
+        <option value="en">English</option>
+        <option value="hi">Hindi</option>
+        <option value="es">Spanish</option>
+      </select>
+    </label>
+
+    <div class="main-panels">
+      <div class="panel record-panel">
+        <p>Record your voice:</p>
+        <button id="recordButton">🎤 Tap to Record Voice</button>
+        <button id="stopButton" disabled>Stop</button>
+        <audio id="audioPlayback" controls></audio>
+      </div>
+      <div class="panel upload-panel">
+        <p>OR upload audio file:</p>
+        <input type="file" id="audiofile" accept="audio/*">
+        <button id="uploadBtn">Upload & Predict</button>
+      </div>
+    </div>
+
+    <div class="trend-result-container">
+      <div>
+        <h2>Voice Risk Trend</h2>
+        <canvas id="trendChart" width="350" height="140"></canvas>
+      </div>
+      <div>
+        <h2>Results</h2>
+        <div id="result"></div>
+      </div>
+    </div>
+
+
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
